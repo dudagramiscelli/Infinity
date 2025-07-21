@@ -1,700 +1,981 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinity Eventos - Sua festa perfeita começa aqui</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Eventos - Sua festa perfeita começa aqui</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        :root {
-            --brown-dark: #3E2723;
-            --brown-medium: #5D4037;
-            --brown-light: #8D6E63;
-            --brown-lighter: #BCAAA4;
-            --white: #FFFFFF;
-            --black: #000000;
-            --gray-light: #F5F5F5;
-        }
+        :root {
+            --brown-dark: #3E2723;
+            --brown-medium: #5D4037;
+            --brown-light: #8D6E63;
+            --brown-lighter: #BCAAA4;
+            --white: #FFFFFF;
+            --black: #000000;
+            --gray-light: #F5F5F5;
+        }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--black);
-            background-color: var(--white);
-        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* Header */
-        header {
-            background: var(--brown-dark);
-            color: var(--white);
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+        /* Header */
+        header {
+            background: var(--brown-dark);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--white);
-        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+        }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-        .nav-links a:hover {
-            color: var(--brown-lighter);
-        }
+        .nav-links a:hover {
+            color: var(--brown-lighter);
+        }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
 
-        /* Main Content */
-        main {
-            margin-top: 80px;
-        }
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
 
-        .page {
-            display: none;
-            min-height: calc(100vh - 160px);
-            padding: 2rem 0;
-        }
+        .page {
+            display: none;
+            min-height: calc(100vh - 160px);
+            padding: 2rem 0;
+        }
 
-        .page.active {
-            display: block;
-        }
+        .page.active {
+            display: block;
+        }
 
-        /* Home Page */
-        .hero {
-            background: linear-gradient(135deg, var(--brown-medium), var(--brown-dark));
-            color: var(--white);
-            padding: 4rem 0;
-            text-align: center;
-        }
+        /* Home Page */
+        .hero {
+            background: linear-gradient(135deg, var(--brown-medium), var(--brown-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
 
-        .cta-button {
-            background: var(--white);
-            color: var(--brown-dark);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+        .cta-button {
+            background: var(--white);
+            color: var(--brown-dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
 
-        .features {
-            padding: 4rem 0;
-            background: var(--gray-light);
-        }
+        .features {
+            padding: 4rem 0;
+            background: var(--gray-light);
+        }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-        .feature-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--brown-medium);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
-        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--brown-medium);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
 
-        /* Form Styles */
-        .form-container {
-            max-width: 500px;
-            margin: 2rem auto;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        /* Form Styles */
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--brown-dark);
-            font-weight: bold;
-        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--brown-dark);
+            font-weight: bold;
+        }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--brown-lighter);
-            border-radius: 5px;
-            font-size: 1rem;
-        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--brown-lighter);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--brown-medium);
-        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--brown-medium);
+        }
 
-        .btn {
-            background: var(--brown-medium);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-            transition: background 0.3s;
-        }
+        .btn {
+            background: var(--brown-medium);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: background 0.3s;
+        }
 
-        .btn:hover {
-            background: var(--brown-dark);
-        }
+        .btn:hover {
+            background: var(--brown-dark);
+        }
 
-        /* Events Grid */
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-        .event-card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
+        .event-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
 
-        .event-card:hover {
-            transform: translateY(-5px);
-        }
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
 
-        .event-image {
-            width: 100%;
-            height: 200px;
-            background: var(--brown-lighter);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-        }
+        .event-image {
+            width: 100%;
+            height: 200px;
+            background: var(--brown-lighter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
 
-        .event-content {
-            padding: 1.5rem;
-        }
+        .event-content {
+            padding: 1.5rem;
+        }
 
-        .event-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--brown-dark);
-        }
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--brown-dark);
+        }
 
-        .event-info {
-            color: var(--brown-medium);
-            margin-bottom: 1rem;
-        }
+        .event-info {
+            color: var(--brown-medium);
+            margin-bottom: 1rem;
+        }
 
-        /* Team Grid */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+        /* Portfolio Styles */
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
 
-        .team-member {
-            text-align: center;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
 
-        .member-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--brown-lighter);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 2rem;
-        }
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-        /* Footer */
-        footer {
-            background: var(--brown-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--brown-dark);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: right 0.3s;
-            }
+        .project-header {
+            background: linear-gradient(135deg, var(--brown-medium), var(--brown-dark));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
 
-            .nav-links.active {
-                right: 0;
-            }
+        .project-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
 
-            .menu-toggle {
-                display: flex;
-            }
+        .project-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
+        .project-content {
+            padding: 2rem;
+        }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
+        .project-objective {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--brown-medium);
+        }
 
-            .form-container {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-        }
-    </style>
+        .project-features {
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(139, 110, 99, 0.1);
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            background: var(--brown-medium);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .testimonial {
+            background: var(--brown-dark);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 0 0 15px 15px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+
+        .project-stats {
+            display: flex;
+            justify-content: space-around;
+            background: var(--gray-light);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--brown-dark);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--brown-medium);
+            margin-top: 0.5rem;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--brown-lighter);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--brown-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--brown-dark);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: right 0.3s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Infinity Eventos</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#" onclick="showPage('home')">Início</a></li>
-                <li><a href="#" onclick="showPage('login')">Login</a></li>
-                <li><a href="#" onclick="showPage('create-event')">Criar Evento</a></li>
-                <li><a href="#" onclick="showPage('venues')">Locais</a></li>
-                <li><a href="#" onclick="showPage('team')">Equipe</a></li>
-            </ul>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+    <header>
+        <nav class="container">
+            <div class="logo">Infinity Eventos</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')">Início</a></li>
+                <li><a href="#" onclick="showPage('login')">Login</a></li>
+                <li><a href="#" onclick="showPage('create-event')">Criar Evento</a></li>
+                <li><a href="#" onclick="showPage('venues')">Locais</a></li>
+                <li><a href="#" onclick="showPage('portfolio')">Eventos Realizados</a></li>
+                <li><a href="#" onclick="showPage('team')">Equipe</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-    <main>
-        <!-- Home Page -->
-        <div id="home" class="page active">
-            <section class="hero">
-                <div class="container">
-                    <h1>Infinity Eventos</h1>
-                    <p>Transforme seus momentos especiais em memórias infinitas</p>
-                    <button class="cta-button" onclick="showPage('create-event')">Criar Meu Evento</button>
-                </div>
-            </section>
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Infinity Eventos</h1>
+                    <p>Transforme seus momentos especiais em memórias infinitas</p>
+                    <button class="cta-button" onclick="showPage('create-event')">Criar Meu Evento</button>
+                </div>
+            </section>
 
-            <section class="features">
-                <div class="container">
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Por que escolher a Infinity?</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">🎉</div>
-                            <h3>Eventos Únicos</h3>
-                            <p>Criamos experiências personalizadas que refletem sua personalidade e estilo.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📍</div>
-                            <h3>Locais Exclusivos</h3>
-                            <p>Acesso aos melhores salões de festas e espaços para eventos em Belo Horizonte.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">👥</div>
-                            <h3>Equipe Especializada</h3>
-                            <p>Profissionais experientes para garantir que seu evento seja perfeito em todos os detalhes.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+            <section class="features">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Por que escolher a Infinity?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"> </div>
+                            <h3>Eventos Únicos</h3>
+                            <p>Criamos experiências personalizadas que refletem sua personalidade e estilo.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"> </div>
+                            <h3>Locais Exclusivos</h3>
+                            <p>Acesso aos melhores salões de festas e espaços para eventos em Belo Horizonte.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"> </div>
+                            <h3>Equipe Especializada</h3>
+                            <p>Profissionais experientes para garantir que seu evento seja perfeito em todos os detalhes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-        <!-- Login Page -->
-        <div id="login" class="page">
-            <div class="container">
-                <div class="form-container">
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Fazer Login</h2>
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Senha</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        <button type="submit" class="btn">Entrar</button>
-                    </form>
-                    <p style="text-align: center; margin-top: 1rem;">
-                        Não tem conta? <a href="#" onclick="showPage('register')" style="color: var(--brown-medium);">Cadastre-se</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <!-- Login Page -->
+        <div id="login" class="page">
+            <div class="container">
+                <div class="form-container">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Fazer Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn">Entrar</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        Não tem conta? <a href="#" onclick="showPage('register')" style="color: var(--brown-medium);">Cadastre-se</a>
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        <!-- Create Event Page -->
-        <div id="create-event" class="page">
-            <div class="container">
-                <div class="form-container" style="max-width: 700px;">
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Criar Novo Evento</h2>
-                    <form id="eventForm">
-                        <div class="form-group">
-                            <label for="eventName">Nome do Evento</label>
-                            <input type="text" id="eventName" name="eventName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="eventType">Tipo de Evento</label>
-                            <select id="eventType" name="eventType" required>
-                                <option value="">Selecione o tipo</option>
-                                <option value="casamento">Casamento</option>
-                                <option value="aniversario">Aniversário</option>
-                                <option value="formatura">Formatura</option>
-                                <option value="corporativo">Evento Corporativo</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="eventDate">Data do Evento</label>
-                            <input type="date" id="eventDate" name="eventDate" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="eventTime">Horário</label>
-                            <input type="time" id="eventTime" name="eventTime" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="guests">Número de Convidados</label>
-                            <input type="number" id="guests" name="guests" min="1" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="budget">Orçamento (R$)</label>
-                            <input type="number" id="budget" name="budget" min="0" step="0.01">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Descrição do Evento</label>
-                            <textarea id="description" name="description" rows="4" placeholder="Descreva detalhes sobre seu evento..."></textarea>
-                        </div>
-                        <button type="submit" class="btn">Criar Evento</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <!-- Create Event Page -->
+        <div id="create-event" class="page">
+            <div class="container">
+                <div class="form-container" style="max-width: 700px;">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Criar Novo Evento</h2>
+                    <form id="eventForm">
+                        <div class="form-group">
+                            <label for="eventName">Nome do Evento</label>
+                            <input type="text" id="eventName" name="eventName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Tipo de Evento</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="casamento">Casamento</option>
+                                <option value="aniversario">Aniversário</option>
+                                <option value="formatura">Formatura</option>
+                                <option value="corporativo">Evento Corporativo</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Data do Evento</label>
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTime">Horário</label>
+                            <input type="time" id="eventTime" name="eventTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Número de Convidados</label>
+                            <input type="number" id="guests" name="guests" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Orçamento (R$)</label>
+                            <input type="number" id="budget" name="budget" min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Descrição do Evento</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Descreva detalhes sobre seu evento..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Criar Evento</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-        <!-- Venues Page -->
-        <div id="venues" class="page">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Locais Disponíveis em BH</h2>
-                <div class="events-grid" id="venuesGrid">
-                    <!-- Venues will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
+        <!-- Venues Page -->
+        <div id="venues" class="page">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Locais Disponíveis em BH</h2>
+                <div class="events-grid" id="venuesGrid">
+                    <!-- Venues will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
 
-        <!-- Team Page -->
-        <div id="team" class="page">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Nossa Equipe</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-photo">AM</div>
-                        <h3>Ana Maria Silva</h3>
-                        <p style="color: var(--brown-medium); font-weight: bold;">Coordenadora de Eventos</p>
-                        <p>Especialista em eventos corporativos com mais de 10 anos de experiência no mercado.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">RC</div>
-                        <h3>Roberto Carlos</h3>
-                        <p style="color: var(--brown-medium); font-weight: bold;">Designer de Ambientes</p>
-                        <p>Responsável pela decoração e ambientação de todos os nossos eventos.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">MF</div>
-                        <h3>Mariana Fernandes</h3>
-                        <p style="color: var(--brown-medium); font-weight: bold;">Gerente de Relacionamento</p>
-                        <p>Cuida do atendimento ao cliente e garante que todas as necessidades sejam atendidas.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="member-photo">JS</div>
-                        <h3>João Santos</h3>
-                        <p style="color: var(--brown-medium); font-weight: bold;">Coordenador de Logística</p>
-                        <p>Especialista em logística e execução operacional de eventos de grande porte.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Portfolio Page -->
+        <div id="portfolio" class="page">
+            <div class="container">
+                <div class="portfolio-header">
+                    <h2 style="color: var(--brown-dark); margin-bottom: 1rem;">Eventos Realizados</h2>
+                    <p style="font-size: 1.1rem; color: var(--brown-medium);">Conheça alguns dos projetos que trouxeram memórias inesquecíveis aos nossos clientes</p>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <!-- Projeto Gerdau -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">CERIMÔNIA DE PREMIAÇÃO</h3>
+                            <p class="project-subtitle">GERDAU - Marketing</p>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-objective">
+                                <h4 style="color: var(--brown-dark); margin-bottom: 1rem;"> Objetivo do Evento</h4>
+                                <p>Celebrar e reconhecer o desempenho dos colaboradores da Gerdau por meio de uma cerimônia de premiação elegante, com 200 convidados, valorizando a cultura de excelência da empresa e promovendo engajamento.</p>
+                            </div>
 
-        <!-- Register Page -->
-        <div id="register" class="page">
-            <div class="container">
-                <div class="form-container">
-                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Criar Conta</h2>
-                    <form id="registerForm">
-                        <div class="form-group">
-                            <label for="fullName">Nome Completo</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="regEmail">E-mail</label>
-                            <input type="email" id="regEmail" name="regEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="regPassword">Senha</label>
-                            <input type="password" id="regPassword" name="regPassword" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirmar Senha</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" required>
-                        </div>
-                        <button type="submit" class="btn">Cadastrar</button>
-                    </form>
-                    <p style="text-align: center; margin-top: 1rem;">
-                        Já tem conta? <a href="#" onclick="showPage('login')" style="color: var(--brown-medium);">Faça login</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </main>
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">200</div>
+                                    <div class="stat-label">Convidados</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">100%</div>
+                                    <div class="stat-label">Satisfação</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">1</div>
+                                    <div class="stat-label">Noite Memorável</div>
+                                </div>
+                            </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Infinity Eventos. Todos os direitos reservados.</p>
-            <p>Belo Horizonte - MG | Contato: (31) 99999-9999 | contato@infinityeventos.com.br</p>
-        </div>
-    </footer>
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Aconchego e Elegância</strong>
+                                        <p>Criamos um ambiente acolhedor e sofisticado que refletiu os valores da empresa</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Cerimônia de Premiação</strong>
+                                        <p>Reconhecimento profissional com momento emocionalmente marcante para os colaboradores</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Engajamento Corporativo</strong>
+                                        <p>Promoveu integração, inspiração e verdadeiro sentimento de pertencimento</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">A parceria com a Infinity Eventos superou todas as nossas expectativas. Desde os primeiros encontros até a execução final do evento, fomos atendidos com profissionalismo, atenção aos detalhes e, acima de tudo, muita criatividade. A equipe da Infinity conseguiu traduzir nossos valores em cada momento do encontro, promovendo integração, inspiração e um verdadeiro sentimento de pertencimento.</p>
+                            <p class="testimonial-author">— Luciana Martins, Gerente de Comunicação Interna – Gerdau</p>
+                        </div>
+                    </div>
 
-    <script>
-        // Navigation functionality
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Close mobile menu if open
-            document.getElementById('navLinks').classList.remove('active');
-        }
+                    <!-- Projeto Raízes de Minas -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">RAÍZES DE MINAS</h3>
+                            <p class="project-subtitle">Mercado Central de BH</p>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-objective">
+                                <h4 style="color: var(--brown-dark); margin-bottom: 1rem;"> Objetivo do Evento</h4>
+                                <p>Criar um evento que celebre as raízes mineiras, valorize os comerciantes e atraia novos públicos, transformando o Mercado Central em um palco vivo de sabores, histórias e experiências autênticas.</p>
+                            </div>
 
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
+                            <div class="project-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">2</div>
+                                    <div class="stat-label">Espaços Instagramáveis</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">100%</div>
+                                    <div class="stat-label">Tradição Mineira</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">∞</div>
+                                    <div class="stat-label">Memórias Criadas</div>
+                                </div>
+                            </div>
 
-        // Form handling
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            if (email && password) {
-                alert('Login realizado com sucesso! (Demonstração)');
-                showPage('home');
-            }
-        });
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Espaços Instagramáveis</strong>
+                                        <p>Carrinho com panelas, queijos e flores + Painel com fachada do Mercado em MDF decorado</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Estações Gastronômicas</strong>
+                                        <p>Pão de queijo do mercado e limonada para refrescar com o autêntico sabor mineiro</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Área do Palco</strong>
+                                        <p>Espaço dedicado para apresentações culturais e valorização dos artistas locais</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"> </div>
+                                    <div>
+                                        <strong>Tradição e Afeto</strong>
+                                        <p>Celebração das raízes com artesanato típico, sabores e o calor humano mineiro</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">A parceria com a Infinity Eventos superou todas as nossas expectativas. O evento trouxe um novo brilho ao Mercado. Os espaços estavam lindos, os expositores se sentiram valorizados e o público saiu emocionado com a experiência. A Infinity conseguiu traduzir em detalhes aquilo que o Mercado Central representa: um lugar de encontros, sabores e memórias.</p>
+                            <p class="testimonial-author">— Diretoria do Mercado Central de Belo Horizonte</p>
+                        </div>
+                    </div>
+                </div>
 
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('As senhas não coincidem!');
-                return;
-            }
-            
-            alert('Conta criada com sucesso! (Demonstração)');
-            showPage('login');
-        });
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--gray-light); border-radius: 15px;">
+                    <h3 style="color: var(--brown-dark); margin-bottom: 1rem;">Quer fazer parte da nossa história?</h3>
+                    <p style="margin-bottom: 2rem; color: var(--brown-medium);">Cada evento é único e merece cuidado especial. Vamos criar juntos uma experiência inesquecível!</p>
+                    <button class="cta-button" onclick="showPage('create-event')">Criar Meu Evento</button>
+                </div>
+            </div>
+        </div>
 
-        document.getElementById('eventForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const eventName = document.getElementById('eventName').value;
-            const eventType = document.getElementById('eventType').value;
-            const eventDate = document.getElementById('eventDate').value;
-            
-            if (eventName && eventType && eventDate) {
-                alert(`Evento "${eventName}" criado com sucesso! (Demonstração)`);
-                document.getElementById('eventForm').reset();
-            }
-        });
+        <!-- Team Page -->
+        <div id="team" class="page">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Nossa Equipe</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">AM</div>
+                        <h3>Ana Maria Silva</h3>
+                        <p style="color: var(--brown-medium); font-weight: bold;">Coordenadora de Eventos</p>
+                        <p>Especialista em eventos corporativos com mais de 10 anos de experiência no mercado.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">RC</div>
+                        <h3>Roberto Carlos</h3>
+                        <p style="color: var(--brown-medium); font-weight: bold;">Designer de Ambientes</p>
+                        <p>Responsável pela decoração e ambientação de todos os nossos eventos.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">MF</div>
+                        <h3>Mariana Fernandes</h3>
+                        <p style="color: var(--brown-medium); font-weight: bold;">Gerente de Relacionamento</p>
+                        <p>Cuida do atendimento ao cliente e garante que todas as necessidades sejam atendidas.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo">JS</div>
+                        <h3>João Santos</h3>
+                        <p style="color: var(--brown-medium); font-weight: bold;">Coordenador de Logística</p>
+                        <p>Especialista em logística e execução operacional de eventos de grande porte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        // Populate venues
-        const venues = [
-            {
-                name: "Salão Elegance",
-                location: "Savassi",
-                capacity: "150 pessoas",
-                price: "R$ 2.500/dia",
-                description: "Salão sofisticado no coração da Savassi, perfeito para casamentos e eventos corporativos."
-            },
-            {
-                name: "Espaço Jardim Real",
-                location: "Pampulha",
-                capacity: "300 pessoas",
-                price: "R$ 4.200/dia",
-                description: "Ambiente ao ar livre com jardim paisagístico e vista para a Lagoa da Pampulha."
-            },
-            {
-                name: "Villa Sunset",
-                location: "Belvedere",
-                capacity: "200 pessoas",
-                price: "R$ 3.800/dia",
-                description: "Villa exclusiva com piscina e área gourmet, ideal para eventos íntimos e especiais."
-            },
-            {
-                name: "Centro de Convenções BH",
-                location: "Centro",
-                capacity: "500 pessoas",
-                price: "R$ 6.000/dia",
-                description: "Espaço amplo e moderno para grandes eventos corporativos e formaturas."
-            },
-            {
-                name: "Chácara do Vale",
-                location: "Nova Lima",
-                capacity: "250 pessoas",
-                price: "R$ 3.200/dia",
-                description: "Ambiente rústico e aconchegante rodeado pela natureza da região metropolitana."
-            },
-            {
-                name: "Salão Crystal",
-                location: "Funcionários",
-                capacity: "120 pessoas",
-                price: "R$ 2.200/dia",
-                description: "Salão boutique com decoração clássica e serviço personalizado."
-            }
-        ];
+        <!-- Register Page -->
+        <div id="register" class="page">
+            <div class="container">
+                <div class="form-container">
+                    <h2 style="text-align: center; margin-bottom: 2rem; color: var(--brown-dark);">Criar Conta</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="fullName">Nome Completo</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">E-mail</label>
+                            <input type="email" id="regEmail" name="regEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Senha</label>
+                            <input type="password" id="regPassword" name="regPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Senha</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn">Cadastrar</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        Já tem conta? <a href="#" onclick="showPage('login')" style="color: var(--brown-medium);">Faça login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-        function populateVenues() {
-            const venuesGrid = document.getElementById('venuesGrid');
-            venuesGrid.innerHTML = venues.map(venue => `
-                <div class="event-card">
-                    <div class="event-image">📍 ${venue.location}</div>
-                    <div class="event-content">
-                        <h3 class="event-title">${venue.name}</h3>
-                        <div class="event-info">
-                            <p><strong>Capacidade:</strong> ${venue.capacity}</p>
-                            <p><strong>Localização:</strong> ${venue.location}</p>
-                            <p><strong>Preço:</strong> ${venue.price}</p>
-                        </div>
-                        <p>${venue.description}</p>
-                        <button class="btn" style="margin-top: 1rem;" onclick="contactVenue('${venue.name}')">Solicitar Orçamento</button>
-                    </div>
-                </div>
-            `).join('');
-        }
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Infinity Eventos. Todos os direitos reservados.</p>
+            <p>Belo Horizonte - MG | Contato: (31) 99999-9999 | contato@infinityeventos.com.br</p>
+        </div>
+    </footer>
 
-        function contactVenue(venueName) {
-            alert(`Solicitação de orçamento enviada para ${venueName}! Nossa equipe entrará em contato em breve. (Demonstração)`);
-        }
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+        }
 
-        // Initialize venues when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            populateVenues();
-        });
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const navLinks = document.getElementById('navLinks');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
+        // Form handling
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                alert('Login realizado com sucesso! (Demonstração)');
+                showPage('home');
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+            
+            alert('Conta criada com sucesso! (Demonstração)');
+            showPage('login');
+        });
+
+        document.getElementById('eventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const eventName = document.getElementById('eventName').value;
+            const eventType = document.getElementById('eventType').value;
+            const eventDate = document.getElementById('eventDate').value;
+            
+            if (eventName && eventType && eventDate) {
+                alert(`Evento "${eventName}" criado com sucesso! (Demonstração)`);
+                document.getElementById('eventForm').reset();
+            }
+        });
+
+        // Populate venues
+        const venues = [
+            {
+                name: "Salão Elegance",
+                location: "Savassi",
+                capacity: "150 pessoas",
+                price: "R$ 2.500/dia",
+                description: "Salão sofisticado no coração da Savassi, perfeito para casamentos e eventos corporativos."
+            },
+            {
+                name: "Espaço Jardim Real",
+                location: "Pampulha",
+                capacity: "300 pessoas",
+                price: "R$ 4.200/dia",
+                description: "Ambiente ao ar livre com jardim paisagístico e vista para a Lagoa da Pampulha."
+            },
+            {
+                name: "Villa Sunset",
+                location: "Belvedere",
+                capacity: "200 pessoas",
+                price: "R$ 3.800/dia",
+                description: "Villa exclusiva com piscina e área gourmet, ideal para eventos íntimos e especiais."
+            },
+            {
+                name: "Centro de Convenções BH",
+                location: "Centro",
+                capacity: "500 pessoas",
+                price: "R$ 6.000/dia",
+                description: "Espaço amplo e moderno para grandes eventos corporativos e formaturas."
+            },
+            {
+                name: "Chácara do Vale",
+                location: "Nova Lima",
+                capacity: "250 pessoas",
+                price: "R$ 3.200/dia",
+                description: "Ambiente rústico e aconchegante rodeado pela natureza da região metropolitana."
+            },
+            {
+                name: "Salão Crystal",
+                location: "Funcionários",
+                capacity: "120 pessoas",
+                price: "R$ 2.200/dia",
+                description: "Salão boutique com decoração clássica e serviço personalizado."
+            }
+        ];
+
+        function populateVenues() {
+            const venuesGrid = document.getElementById('venuesGrid');
+            venuesGrid.innerHTML = venues.map(venue => `
+                <div class="event-card">
+                    <div class="event-image"> ${venue.location}</div>
+                    <div class="event-content">
+                        <h3 class="event-title">${venue.name}</h3>
+                        <div class="event-info">
+                            <p><strong>Capacidade:</strong> ${venue.capacity}</p>
+                            <p><strong>Localização:</strong> ${venue.location}</p>
+                            <p><strong>Preço:</strong> ${venue.price}</p>
+                        </div>
+                        <p>${venue.description}</p>
+                        <button class="btn" style="margin-top: 1rem;" onclick="contactVenue('${venue.name}')">Solicitar Orçamento</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function contactVenue(venueName) {
+            alert(`Solicitação de orçamento enviada para ${venueName}! Nossa equipe entrará em contato em breve. (Demonstração)`);
+        }
+
+        // Initialize venues when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            populateVenues();
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
